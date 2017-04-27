@@ -1,8 +1,4 @@
 import React, { Component } from 'react';
-import Divider from 'material-ui/Divider';
-import Paper from 'material-ui/Paper';
-import TextField from 'material-ui/TextField';
-import FlatButton from 'material-ui/FlatButton';
 import ListItem from 'material-ui/List/ListItem';
 import Avatar from 'material-ui/Avatar';
 
@@ -35,11 +31,6 @@ const styles = {
       height: '50px'
     },
 }
-
-const style = {
-  marginLeft: 20,
-};
-
 
 class App extends Component {
   render() {
