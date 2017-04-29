@@ -6,7 +6,6 @@ import logo from './logo.svg';
 import './App.css';
 import Content from './components/Content';
 import AddTodo from './components/AddTodo';
-import Search from './components/Search';
 
 const styles = {
     navbar : {
@@ -50,7 +49,7 @@ class App extends Component {
         </div>
         <div className="content">
           <Content />
-        <Search />
+
         </div>
       </div>
     );

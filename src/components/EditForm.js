@@ -70,8 +70,7 @@ class EditTodo extends React.Component {
           onRequestClose={this.handleClose}
         >
           <TextField
-            hintText="Input Your Edited Todo Here..."
-            floatingLabelText="Edit Todo"
+            floatingLabelText="Edit Your Todo"
             name="title"
             value={this.state.title}
             onChange={this.handleChange.bind(this)}

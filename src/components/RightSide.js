@@ -1,12 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {Card, CardActions, CardHeader } from 'material-ui/Card';
-import FlatButton from 'material-ui/FlatButton';
-import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
+import {Card, CardHeader } from 'material-ui/Card';
+import { TableRowColumn } from 'material-ui/Table';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import TodoDone from 'material-ui/svg-icons/action/done';
 import TodoUnDone from 'material-ui/svg-icons/content/clear';
-import TodoDelete from 'material-ui/svg-icons/action/delete';
+import RaisedButton from 'material-ui/RaisedButton';
+
 
 import { completeTodo, uncompleteTodo, deleteTodo } from '../actions';
 import EditForm from './EditForm';
@@ -15,17 +15,20 @@ import { filterTodo } from '../selectors';
 
 const styles = {
   doneBtn: {
-    marginLeft: 10,
-    marginTop: 5,
+    marginLeft: '10px',
+    marginTop: '20px',
   },
   rapih: {
-    marginLeft: 55
+    marginLeft: '55'
   },
   card1: {
     backgroundColor: '#ccc',
   },
   card2: {
     backgroundColor: '#fff',
+  },
+  square: {
+    marginTop: '20px'
   }
 }
 
@@ -55,7 +58,7 @@ class TodoList extends React.Component {
     return (
       <div>
         {this.props.todos.map((todo, index) =>
-          <div key={index}>
+          <div key={index} style={styles.square}>
             <Card style={todo.completed === false ? styles.card1 : styles.card2}>
               <CardHeader
                 title={todo.title}
@@ -71,17 +74,20 @@ class TodoList extends React.Component {
                 >
                   { todo.completed === false ? <TodoDone /> : <TodoUnDone />}
                 </FloatingActionButton>
+
               </TableRowColumn>
-              <TableRowColumn />
-              <CardActions>
-                <FlatButton
-                  label="Delete"
-                  onClick={() => this.removeTodo(todo.id)}
-                />
-              </CardActions>
               <TableRowColumn>
                 <EditForm todoId={todo.id} todoTitle={todo.title}/>
               </TableRowColumn>
+              <TableRowColumn>
+                 <RaisedButton
+                     label="DELETE"
+                   secondary={true}
+                   onClick={() => this.removeTodo(todo.id)}
+                 />
+              </TableRowColumn>
+
+
             </Card>
           </div>
         )}

@@ -1,7 +1,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import FloatingActionButton from 'material-ui/FloatingActionButton';
+import ContentAdd from 'material-ui/svg-icons/content/add';
 
 import { addTodo } from '../actions';
+
+const styles = {
+  formAdd: {
+    width: '300px',
+    height: '30px',
+    marginTop: '40px',
+    fontSize: '16px',
+  },
+  btnAdd: {
+    marginLeft: '10px',
+    marginTop: '30px',
+  }
+}
 
 class AddTodoList extends React.Component {
   constructor(props) {
@@ -36,8 +51,11 @@ class AddTodoList extends React.Component {
             name="title"
             value={title}
             onChange={this.handleChange}
+            style={styles.formAdd}
           />
-          <input type="submit" value="Add Todo" />
+          <FloatingActionButton type="submit" mini={true} style={styles.btnAdd}>
+            <ContentAdd />
+          </FloatingActionButton>
         </form>
       </div>
     );
