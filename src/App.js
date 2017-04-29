@@ -4,8 +4,9 @@ import Avatar from 'material-ui/Avatar';
 
 import logo from './logo.svg';
 import './App.css';
-import Content from './components/Content'
-import AddTodo from './components/AddTodo'
+import Content from './components/Content';
+import AddTodo from './components/AddTodo';
+import Search from './components/Search';
 
 const styles = {
     navbar : {
@@ -38,7 +39,7 @@ class App extends Component {
       <div className="App">
         <div className="App-header">
           <ul style={styles.navbar} className="navigasi">
-            <li><AddTodo /></li>
+            <li><p>React Redux Todo List</p></li>
           </ul>
             <li style={styles.navbarRight}><ListItem
                 disabled={true}
@@ -49,7 +50,7 @@ class App extends Component {
         </div>
         <div className="content">
           <Content />
-
+        <Search />
         </div>
       </div>
     );
