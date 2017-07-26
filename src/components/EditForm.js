@@ -39,6 +39,7 @@ class EditTodo extends React.Component {
  }
 
   render() {
+    // console.log("ini parsing ID ", this.props.todoId);
     const actions = [
       <FlatButton
         label="Cancel"
@@ -58,7 +59,7 @@ class EditTodo extends React.Component {
     ];
 
     return (
-      <div>
+      <div className="formEditinh">
         <FloatingActionButton mini={true} onTouchTap={this.handleOpen}>
           <TodoEdit />
         </FloatingActionButton>

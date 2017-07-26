@@ -24,6 +24,7 @@ class AddTodoList extends React.Component {
     this.state = {
       title: '',
       completed: false,
+      warning: '',
     }
 
     this.handleChange = this.handleChange.bind(this);
@@ -37,14 +38,23 @@ class AddTodoList extends React.Component {
     });
   }
 
+  handleSubmited() {
+    if (this.state.title === '') {
+      this.setState({warning: 'Inputan tidak boleh kosong!'})
+    } else {
+      this.setState({warning: ''})
+      this.props.addTodo(this.state)
+    }
+  }
+
   render() {
-    const { title } = this.state
+    const { title, completed } = this.state
     return (
       <div>
         <form
           onSubmit={(e) => {
             e.preventDefault();
-            this.props.addTodo(this.state)
+            this.handleSubmited()
             this.setState({title: '', createdAt: ''})
           }}>
           <input type="text"
@@ -57,6 +67,7 @@ class AddTodoList extends React.Component {
             <ContentAdd />
           </FloatingActionButton>
         </form>
+        <h4>{this.state.warning}</h4>
       </div>
     );
   }

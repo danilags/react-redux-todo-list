@@ -11,7 +11,7 @@ const Content = () => (
       <Search />
     </div>
     <div style={{width: '50%', margin: '0 auto', textAlign: 'center'}}>
-      <RightSide />
+      <RightSide className="content"/>
     </div>
   </div>
 );

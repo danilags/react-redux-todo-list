@@ -77,7 +77,9 @@ class TodoList extends React.Component {
 
               </TableRowColumn>
               <TableRowColumn>
+
                 <EditForm todoId={todo.id} todoTitle={todo.title}/>
+
               </TableRowColumn>
               <TableRowColumn>
                  <RaisedButton
@@ -99,7 +101,7 @@ class TodoList extends React.Component {
 const mapStateToProps = (state) => {
   return {
     todos: filterTodo(state.todos, state.searchKeyword),
-    searchKeyword: state.searchKeyword,
+    // searchKeyword: state.searchKeyword,
   }
 }
 

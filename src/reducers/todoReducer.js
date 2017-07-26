@@ -7,13 +7,12 @@ const initialState = [
 ];
 
 const addTodo = (state, newTodo) => {
-  const { title, createdAt, completed } = newTodo;
+  const { title, completed } = newTodo;
   const ids = state.map(todo => todo.id);
   const newId = Math.max(...ids) + 1;
   const todo = {
     id: newId,
     title,
-    createdAt,
     completed,
   };
   const newState = [...state, todo]
@@ -37,7 +36,10 @@ const completeTodo = (state, todoId) => {
 }
 
 const deleteTodo = (state, todoId) => {
-  const newState = state.filter(todo => todo.id !== todoId);
+  const newState = state.filter(todo => {
+    console.log("test", todo);
+    return todo.id !== todoId
+  });
   return newState
 }
 
@@ -56,6 +58,7 @@ const uncompleteTodo = (state, todoId) => {
 }
 
 const editTodo = (state, updateTodo) => {
+  console.log("ini updateTodo di reducer ", updateTodo);
   const newState = state.map(todo => {
     if (todo.id === updateTodo.id) {
       return {
